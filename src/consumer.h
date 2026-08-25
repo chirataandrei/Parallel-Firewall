@@ -9,7 +9,7 @@
 typedef struct so_consumer_ctx_t {
 	struct so_ring_buffer_t *producer_rb;
 
-    /* TODO: add synchronization primitives for timestamp ordering */
+    pthread_mutex_t mutex;
 } so_consumer_ctx_t;
 
 int create_consumers(pthread_t *tids,
