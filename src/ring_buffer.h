@@ -20,12 +20,14 @@ typedef struct so_ring_buffer_t {
 	pthread_cond_t not_empty;
 	pthread_cond_t not_full;
 
+	unsigned long seq;
 	int stopped;
 } so_ring_buffer_t;
 
 int     ring_buffer_init(so_ring_buffer_t *rb, size_t cap);
 ssize_t ring_buffer_enqueue(so_ring_buffer_t *rb, void *data, size_t size);
-ssize_t ring_buffer_dequeue(so_ring_buffer_t *rb, void *data, size_t size);
+ssize_t ring_buffer_dequeue(so_ring_buffer_t *rb, void *data, size_t size,
+			    unsigned long *seq);
 void    ring_buffer_destroy(so_ring_buffer_t *rb);
 void    ring_buffer_stop(so_ring_buffer_t *rb);
 

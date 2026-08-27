@@ -1,0 +1,18 @@
+# Binaries and objects
+src/firewall
+src/serial
+src/*.o
+utils/log/*.o
+
+# Test artifacts
+tests/in/
+tests/out/
+tests/ref/
+tests/*.out
+tests/__pycache__/
+__pycache__/
+
+# Editor / OS
+*.zip
+.DS_Store
+*.swp
